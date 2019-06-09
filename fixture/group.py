@@ -14,11 +14,15 @@ class GroupHelper:
 
     def add_new_group(self, name):
         self.open_group_editor()
-        self.group_editor.window(auto_id="uxNewAddressButton").click()
-        input = self.group_editor.window(class_name="Edit")
-        input.set_text(name)
-        input.type_keys("\n")
+        self.group_editor.window(title=name)
+        self.group_editor.window(auto_id="uxDeleteAddressButton").click()
+        self.delete_group = self.app.application.window(title="Delete group")
+        self.group_editor.wait("visible")
+        self.delete_group.window(auto_id="uxOKAddressButton").click()
         self.close_group_editor()
+
+    def delete_group_by_name(self, name):
+        self.open_group_editor()
 
     def open_group_editor(self):
         self.app.main_window.window(auto_id='groupButton').click()
