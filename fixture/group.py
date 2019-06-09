@@ -22,7 +22,7 @@ class GroupHelper:
 
     def delete_group_by_name(self, name):
         self.open_group_editor()
-        self.group_editor.window(title=name).click()
+        self.group_editor.window(best_match=name).click()
         self.group_editor.window(auto_id="uxDeleteAddressButton").click()
         self.delete_group = self.app.application.window(title="Delete group")
         self.group_editor.wait("visible")
