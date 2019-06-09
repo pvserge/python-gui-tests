@@ -7,4 +7,4 @@ class Application:
         self.application = WinApplication(backend="win32").start(target)
 
     def destroy(self):
-        self.application.window("Free Address Book").close
+        self.application.window("Free Address Book").close()
